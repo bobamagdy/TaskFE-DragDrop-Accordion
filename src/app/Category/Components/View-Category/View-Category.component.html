@@ -1,0 +1,84 @@
+<div class="buttons-corner mt-3">
+  <button type="button" class="btn btn-sm button" data-toggle="modal" data-target="#booking1" (click)="save()"><i
+      class="fa fa-floppy-o" aria-hidden="true"></i>
+  </button>
+  <label>&nbsp;</label>
+  <button type="button" class="btn btn-sm button" data-toggle="modal" data-target="#booking" (click)="cancel()">
+    <i class="fa fa-times" aria-hidden="true"></i>
+  </button>
+</div>
+
+
+<div class="buttons-corner mt-3">
+  <button type="button" class="btn btn-sm button" data-toggle="modal" data-target="#booking1"
+    (click)="OpenPoupeCreateUpdateFaq(faqNew,0,0)">Add FAQ</button>
+  <label>&nbsp;</label>
+  <button type="button" class="btn btn-sm button" data-toggle="modal" data-target="#booking"
+    (click)="OpenPoupeCreateUpdate(categoryNew)">
+    Add Category</button>
+</div>
+
+<div cdkDropListGroup>
+  <div
+  cdkDropList
+  [cdkDropListData]="categoriesList"
+  class="accordion accordion-flush mt-3"  cdkDropListSorting
+  (cdkDropListDropped)="drop($event)">
+
+  <div cdkDropList *ngFor="let cat of categoriesList" cdkDrag>
+    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+
+    <button type="button" class="btn-sm accordion-button" (click)="cat.visiable=!cat.visiable">
+      <i class="fa fa-th-list" aria-hidden="true">
+      </i>
+      <label>&nbsp;</label>
+      {{cat.name}}
+      <button type="button" class="btn btn-sm details" (click)="OpenPoupeCreateUpdate(cat)"><i
+          class="fa fa-pencil  fa-lg"></i></button>
+
+      <button type="button" class="btn btn-sm details1" (click)="deleteCat(cat.id)"><i
+          class="fa fa-trash fa-lg"></i></button>
+
+
+    </button>
+
+    <br />
+    <div *ngIf="cat.visiable" class="accordion-body" cdkDropList
+    [cdkDropListData]="cat.faqs"
+    (cdkDropListDropped)="dropFaq($event)">
+      <ul *ngFor="let faq of cat.faqs; index as i" class="list-group-item" cdkDrag>
+        <!-- <li>{{faq.question}}</li> -->
+
+        <button type="button" class="accordion-button" style="background-color: white;color: black"
+          (click)="faq.visiable=!faq.visiable">
+          <i class="fa fa-th-list" style="color:rgb(192, 105, 243);" aria-hidden="true">
+          </i>
+          <label>&nbsp;</label>
+          {{faq.question}}
+          <button type="button" class="btn btn-sm details3" (click)="OpenPoupeCreateUpdateFaq(faq,cat.id,i)"><i
+              class="fa fa-pencil  fa-lg"></i></button>
+
+          <button type="button" class="btn btn-sm details2" (click)="deleteFaq(faq.id,cat)"><i
+              class="fa fa-trash fa-lg"></i></button>
+
+
+        </button>
+
+        <ng-container *ngIf="faq.visiable" class="accordion-body">
+          <angular-editor id="editor1" [(ngModel)]="faq.answer" [config]="editorConfig">
+            <ng-template #customButtons let-executeCommandFn="executeCommandFn">
+              <ae-toolbar-set>
+                <ae-button iconClass="fa fa-html5" title="Angular editor logo"
+                  (buttonClick)="executeCommandFn('insertHtml')">
+                </ae-button>
+              </ae-toolbar-set>
+            </ng-template>
+          </angular-editor>
+          <!-- {{faq.answer}} -->
+        </ng-container>
+      </ul>
+
+    </div>
+  </div>
+</div>
+</div>

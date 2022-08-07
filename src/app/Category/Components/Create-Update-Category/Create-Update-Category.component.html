@@ -1,0 +1,48 @@
+<!-- <div class="modal fade" id="booking" data-keyboard="false" data-backdrop="static" tabindex="-1"
+      aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" > -->
+            <div class="modal-content">
+                  <div class="modal-header">
+                        <h5 class="modal-title header" id="exampleModalLabel">Category</h5>
+                        <button type="button" class="btn-close close" aria-label="Close" (click)="close()">
+                          <span aria-hidden="true" class="visually-hidden">&times;</span>
+                        </button>
+                        <!-- <button type="button" class="close" (click)="close()" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                        </button> -->
+                  </div>
+                  <div class="modal-body">
+                        <div [formGroup]="form" (ngSubmit)="save()" >
+                              <div class="row clearfix">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                          <div class="form-group">
+                                                <label>Name</label>
+                                                <span class="text-danger">*</span>
+                                                <input type="text" class="form-control" formControlName="name"
+                                                      [class.is-valid]="form.controls['name'].valid"
+                                                      [ngClass]="{ 'is-invalid': submitted &&form.controls['name'].value==''||form.controls['name'].value==null }"
+                                                      autofocus />
+
+                                          </div>
+                                    </div>
+
+
+                                    <div class="col-md-12 mt-2">
+                                          <div class="form-group">
+                                                <button class="btn btn-sm button" (click)="save()"  [disabled]="form.invalid&&saveDisable">
+                                                          Save
+                                                </button>
+                                                <button #closebutton type="button" class="btn btn-sm" (click)="close()" data-dismiss="modal" aria-label="Close">
+                                                      Close
+                                                    </button>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+
+                  </div>
+            </div>
+<!--
+
+      </div>
+</div> -->

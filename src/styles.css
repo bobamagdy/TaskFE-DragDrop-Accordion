@@ -1,0 +1,66 @@
+@import '~font-awesome/css/font-awesome.css';
+
+.button{
+  color: rgb(186, 67, 255);;
+  border-radius: 12px;
+  border: 2px solid rgb(186, 67, 255);
+}
+
+.button:hover {
+  background-color:rgb(186, 67, 255); /* Green */
+  color: white;
+}
+.buttons-corner{
+    margin-top: 1px;
+     margin-right: 2px;
+     top:0;
+     right:0;
+     text-align: right;
+}
+.buttons-corner-details{
+  color:white
+}
+.active {
+  /* color: rgb(116, 11, 68); */
+  color: rgb(186, 67, 255);
+  text-decoration: underline;
+
+  text-decoration-color: rgb(186, 67, 255);
+text-decoration-thickness: 3px;
+}
+.header{
+  color: rgb(186, 67, 255);
+}
+.accordion-button:not(.collapsed){
+  background-color: rgb(192, 105, 243);
+  color: white;
+  border-radius: 12px;
+  border-left: 8px solid rgb(87, 12, 131);
+}
+
+
+.details{
+  color: white;
+    position: absolute;
+    right: 100px;
+}
+
+
+
+.details1{
+  color: white;
+    position: absolute;
+    right: 50px;
+}
+.details3{
+  color: rgb(87, 12, 131);;
+    position: absolute;
+    right: 100px;
+}
+
+.details2{
+  color: red;
+    position: absolute;
+    right: 50px;
+}
+

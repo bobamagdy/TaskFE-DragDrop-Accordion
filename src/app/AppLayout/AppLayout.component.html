@@ -1,0 +1,37 @@
+<div class="m-2">
+  <h6 class="header">moca settings</h6>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link"
+          class="nav-link" href="#"
+          >Plans</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+          routerLinkActive="active"
+           [routerLink]="'/Category-setting/list-categories'"
+          >FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Top Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Policies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Wifi</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+</nav>
+<router-outlet></router-outlet>

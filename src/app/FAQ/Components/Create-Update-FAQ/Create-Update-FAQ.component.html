@@ -1,0 +1,67 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title header" id="exampleModalLabel">FAQ</h5>
+    <button type="button" class="btn-close close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+
+  </div>
+  <div class="modal-body">
+    <div [formGroup]="form" (ngSubmit)="save()">
+
+      <div class="row clearfix">
+
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="form-group">
+            <label>Category</label>
+            <span class="text-danger">*</span>
+            <select class="form-select" aria-label="Default select example" [ngModelOptions]="{standalone: true}"
+              [(ngModel)]="categoryId">
+              <option [ngValue]="null" disabled>Select Category</option>
+              <option *ngFor="let cat of categoryList" [ngValue]="cat.id">{{cat.name}}</option>
+            </select>
+
+
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="form-group">
+            <label>Questaion</label>
+            <span class="text-danger">*</span>
+            <input type="text" class="form-control" formControlName="question"
+              [class.is-valid]="form.controls['question'].valid"
+              [ngClass]="{ 'is-invalid': submitted  &&form.controls['question'].value==''||form.controls['question'].value==null}"
+              autofocus />
+
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="form-group">
+            <label>Answer</label>
+            <span class="text-danger">*</span>
+
+              <textarea class="form-control" formControlName="answer" [class.is-valid]="form.controls['answer'].valid"
+              [ngClass]="{ 'is-invalid': submitted  &&form.controls['answer'].value==''||form.controls['answer'].value==null }"
+               id="exampleFormControlTextarea1" rows="auto"></textarea>
+
+          </div>
+        </div>
+
+
+        <div class="col-md-12 mt-2">
+          <div class="form-group">
+            <button class="btn btn-sm button" (click)="save()" [disabled]="form.invalid&&saveDisable">
+              Save
+            </button>
+            <button #closebutton type="button" class="btn btn-sm" (click)="close()" data-dismiss="modal"
+              aria-label="Close">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
